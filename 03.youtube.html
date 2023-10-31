@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube</title>
+  <link rel="icon" href="https://www.gstatic.com/youtube/img/branding/favicon/favicon_144x144.png">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    #header {
+      width: 100%;
+      height: 8%;
+      background-color: #0f0f0f;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    #header .searchbar {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    #header .searchbar .title {
+      width: 97px;
+      height: 20px;
+      padding-bottom: 5px;
+    }
+
+    #header .searchbar a {
+      text-decoration: none;
+      color: grey;
+      font-size: 12px;
+      font-family: "Arial";
+    }
+
+    #header .material-symbols-outlined {
+      display: inline-block;
+      position: relative;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      padding: 10px;
+    }
+
+    #header .material-symbols-outlined:hover {
+      border-radius: 50%;
+      background-color: rgba(255, 254, 254, 0.1);
+    }
+
+    #header a img {
+      display: inline-block;
+      position: relative;
+      top: 40%;
+      transform: translateY(-50%);
+      padding-left: 20px;
+    }
+
+    #header .search {
+      border: rgba(255, 254, 254, 0.2) solid 1px;
+      border-radius: 30px 0px 0px 30px;
+      width: 515px;
+      height: 36px;
+      color: grey;
+      background: #0f0f0f;
+      left: 650px;
+      top: 3px;
+      position: relative;
+      transform: translateX(-50%);
+      font-size: 16px;
+    }
+
+    #header span:nth-of-type(2) {
+      padding: 8px 10px 8px 20px;
+      border-radius: 0 30px 30px 0;
+      background-color: rgba(255, 254, 254, 0.1);
+      left: 386px;
+      top: 28px;
+      transform: translateY(-50%);
+    }
+
+    #header span:nth-of-type(2):hover {
+      border: none;
+      border-radius: 0 30px 30px 0;
+      background-color: rgba(255, 254, 254, 0.1);
+      cursor: pointer;
+    }
+
+    #header span:nth-of-type(3) {
+      display: inline-block;
+      position: relative;
+      top: 30px;
+      left: 396px;
+      transform: translateY(-50%);
+      padding: 10px;
+      background-color: rgba(255, 254, 254, 0.1);
+      border-radius: 50%;
+    }
+
+    #header span:nth-of-type(3):hover {
+      cursor: pointer;
+      background: rgba(255, 254, 254, 0.2);
+    }
+
+    #header span:nth-of-type(4) {
+      float: right;
+      left: -150px;
+    }
+
+    #header span:nth-of-type(5) {
+      float: right;
+      left: -50px;
+    }
+
+    #header .icon {
+      float: right;
+      width: 40px;
+      height: 40px;
+      left: 80px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      position: relative;
+    }
+
+    #sidebar {
+      width: 14%;
+      height: calc(100vh - 8%);
+      position: fixed;
+      top: 8%;
+      left: 0;
+      margin-right: 20px;
+      overflow: auto;
+    }
+
+    #sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    #sidebar::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+
+    #sidebar:hover::-webkit-scrollbar-thumb {
+      background: #6e6e6e;
+      border-radius: 5px;
+    }
+
+    #sidebar .button {
+      width: 180px;
+      height: 40px;
+      border-radius: 10px;
+      margin: 0 5px 0 10px;
+    }
+
+    #sidebar .button:first-of-type {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #sidebar .button:hover {
+      background-color: rgba(241, 241, 241, 0.1);
+      cursor: pointer;
+    }
+
+    #sidebar .button:first-of-type:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #sidebar .button span {
+      display: inline-block;
+      text-align: center;
+    }
+
+    #sidebar .button .material-symbols-outlined {
+      top: 7px;
+      left: 10px;
+      position: relative;
+    }
+
+    #sidebar .button .text {
+      position: relative;
+      display: inline-block;
+      left: 25px;
+      font-size: 14px;
+      line-height: 20px;
+      font-family: "Arial";
+    }
+
+    #sidebar hr {
+      border: 1px solid rgba(190, 190, 190, 0.3);
+      margin: 15px 0 15px 0;
+    }
+
+    #sidebar img {
+      width: 24px;
+      height: 24px;
+    }
+
+    #sidebar .icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      position: relative;
+      left: 15px;
+      top: 8px;
+    }
+
+    #sidebar #footer {
+      padding: 0px 24px 24px 24px;
+    }
+
+    #sidebar a {
+      text-decoration: none;
+      color: rgb(170, 170, 170);
+      font-size: 13px;
+      margin: 2px;
+    }
+
+    #sidebar #footer p {
+      color: rgb(113, 113, 113);
+      font-size: 12px;
+      font-family: "Arial";
+    }
+
+    #content {
+      width: calc(100% - 14%);
+      left: 14%;
+      top: 8%;
+      position: absolute;
+      box-sizing: border-box;
+      padding-left: 20px;
+    }
+
+    html::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    html::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    html::-webkit-scrollbar-thumb {
+      background-color: #6e6e6e;
+      border-radius: 5px;
+    }
+
+    #content .row {
+      width: 86%;
+      position: fixed;
+      background-color: #0f0f0f;
+      z-index: 2;
+    }
+
+    #content input {
+      border: none;
+      border-radius: 8px;
+      padding: 7px 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f1f1f1;
+      line-height: 20px;
+      margin: 6px;
+    }
+
+    #content input:hover {
+      cursor: pointer;
+      background-color: rgba(255, 254, 254, 0.2);
+    }
+
+    #container {
+      overflow: hidden;
+      top: 76px;
+      position: relative;
+      width: 100%;
+    }
+
+    #content .card {
+      box-sizing: border-box;
+      padding: 0px 8px 10px 8px;
+      position: relative;
+      top: 15%;
+      width: 25%;
+      height: 50%;
+      float: left;
+      overflow: auto;
+      margin-bottom: 40px;
+    }
+
+    #content #shorts {
+      width: 100%;
+      height: 80%;
+    }
+
+    #content #shorts span {
+      font-size: 30px;
+      font-family: sans-serif;
+      position: relative;
+      bottom: 3px;
+      margin-left: 10px;
+    }
+
+    #content #shorts .long-card {
+      box-sizing: border-box;
+      position: relative;
+      width: 15.9%;
+      height: 80%;
+      float: left;
+      margin: 0 5px 40px 5px;
+    }
+
+    #content #shorts .long-card .img-short {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    #content #shorts ul {
+      width: 93%;
+      float: left;
+    }
+
+    #content #shorts .long-card .img-short:hover {
+      cursor: pointer;
+    }
+
+    #content #shorts .info:hover .dot {
+      display: block;
+    }
+
+    #line {
+      width: 1425px;
+      height: 1px;
+      clear: both;
+      margin-bottom: 40px;
+      background-color: rgba(190, 190, 190, 0.3);
+    }
+
+    #content .card .img {
+      width: 100%;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    #content .card .img:hover {
+      border-radius: 0;
+    }
+
+    #content .card .info {
+      display: block;
+      padding-top: 8px;
+      float: left;
+    }
+
+    #content .card .icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      float: left;
+    }
+
+    #content .card ul {
+      padding: 0;
+      position: relative;
+      float: left;
+      width: 75%;
+      height: 25%;
+      margin: 0 0 0 2.5%;
+    }
+
+    #content ul li {
+      display: inline-block;
+      font-size: 16px;
+      line-height: 21px;
+      text-overflow: -o-ellipsis-lastline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    #content ul li+li {
+      font-size: 14px;
+      color: rgb(190, 190, 190);
+      line-height: 18px;
+    }
+
+    #content .dot {
+      float: right;
+      width: 7%;
+      height: 7%;
+      display: none;
+    }
+
+    #content .card .info:hover .dot {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <div class="searchbar">
+      <span class="material-symbols-outlined">
+        menu
+      </span>
+      <a href="#">
+        <img src="./YouTube_Premium_logo.svg.png" alt="YouTube 首頁" title="YouTube 首頁" class="title">
+        <span>TW</span>
+      </a>
+      <input type="text" name="search" class="search" value="    搜尋">
+      <span class="material-symbols-outlined">
+        search
+      </span>
+      <span class="material-symbols-outlined">
+        mic
+      </span>
+      <span class="material-symbols-outlined">
+        video_call
+      </span>
+      <span class="material-symbols-outlined">
+        notifications
+      </span>
+      <img
+        src="https://yt3.googleusercontent.com/yti/ADpuP3PVfEuNiBt7yzDHMkwpWA68qdMoYFnsfz48gzoFfJs=s88-c-k-c0x00ffffff-no-rj"
+        class="icon">
+    </div>
+  </div>
+  <div id="sidebar">
+    <div class="button">
+      <span class="material-symbols-outlined">
+        home
+      </span>
+      <span class="text">首頁</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        <img src="./shorts.png" width="24" height="24">
+      </span>
+      <span class="text">Shorts</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        subscriptions
+      </span>
+      <span class="text">訂閱內容</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        album
+      </span>
+      <span class="text">YouTube Music</span>
+    </div>
+    <hr>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        video_library
+      </span>
+      <span class="text">媒體庫</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        history
+      </span>
+      <span class="text">觀看紀錄</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        Slideshow
+      </span>
+      <span class="text">你的影片</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        Schedule
+      </span>
+      <span class="text">稍後觀看</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        vertical_align_bottom
+      </span>
+      <span class="text">已下載的內容</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        Cut
+      </span>
+      <span class="text">你的短片</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        expand_more
+      </span>
+      <span class="text">顯示更多</span>
+    </div>
+    <hr>
+    <p style="margin: 0 0 5px 15px;">訂閱內容</p>
+    <div class="button">
+      <img
+        src="https://yt3.googleusercontent.com/ytc/APkrFKa1boXfa25XW2HOPMw4uIclpZXRX-0RhujC_LrxyQ=s176-c-k-c0x00ffffff-no-rj"
+        class="icon">
+      <span class="text">Selly Apex</span>
+    </div>
+    <div class="button">
+      <img
+        src="https://yt3.ggpht.com/j_b_aXWRCTG_KjQyZPE672rrE1l8Wh62Vi1Pa670IIqtBuvYTDqOW9SNeZClbVfmplPX40fvVw=s88-c-k-c0x00ffffff-no-rj"
+        class="icon">
+      <span class="text">鮪魚｜いよ</span>
+    </div>
+    <div class="button">
+      <img
+        src="https://yt3.googleusercontent.com/qVGEKobz9-uJM3VtfYj6yer9RTZ7H9OG1qbYT7dQEX3LXWDGUV_CPokIPVY3mPjjvXhVUoZWbQ=s176-c-k-c0x00ffffff-no-rj"
+        class="icon">
+      <span class="text">mugi no otakatsu</span>
+    </div>
+    <div class="button">
+      <img
+        src="https://yt3.googleusercontent.com/OWKVyYFCT4VFHzMojeGyNM0ouRK1puzullCNtG61nB3Fnqz3X1oxFxxNWTthqn3dOou2iIte=s176-c-k-c0x00ffffff-no-rj"
+        class="icon">
+      <span class="text">둘셋둘</span>
+    </div>
+    <div class="button">
+      <img
+        src="https://yt3.googleusercontent.com/R_KHJC_kgjWt0D6yZ8O72f_DhJJCgyXD88vox3w04spN9wvLUhlTUM9O4ipR7P16x9CDAFAy-KM=s176-c-k-c0x00ffffff-no-rj"
+        class="icon">
+      <span class="text">Mondo</span>
+    </div>
+    <div class="button">
+      <img
+        src="https://yt3.googleusercontent.com/KVWL6t-4tQVxE8BN3u8pgwb4uv7BhUaqm9EiBO4X0yCP2Cm0IFr22HYT3_t5cIDOnd9UsRdH=s176-c-k-c0x00ffffff-no-rj"
+        class="icon">
+      <span class="text">SEVENTEEN </span>
+    </div>
+    <div class="button">
+      <img
+        src="https://yt3.googleusercontent.com/ytc/APkrFKYIRsJKSdEYsAcTRc8c5KYii3bK_v7xMyqiOejsLA=s176-c-k-c0x00ffffff-no-rj"
+        class="icon">
+      <span class="text">이지금 [IU Official] </span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        expand_more
+      </span>
+      <span class="text">顯示另外944個項目</span>
+    </div>
+    <hr>
+    <p style="margin: 0 0 5px 15px;">探索</p>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        local_fire_department
+      </span>
+      <span class="text">發燒影片</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        music_note
+      </span>
+      <span class="text">音樂</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        movie
+      </span>
+      <span class="text">電影</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        sensors
+      </span>
+      <span class="text">直播</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        stadia_controller
+      </span>
+      <span class="text">遊戲</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        newsmode
+      </span>
+      <span class="text">新聞</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        trophy
+      </span>
+      <span class="text">體育</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        podcasts
+      </span>
+      <span class="text">Podcast</span>
+    </div>
+    <hr>
+    <p style="margin: 0 0 5px 15px; font-family: 'Arial';">更多 YouTube 功能</p>
+    <div class="button">
+      <img src="./工作室.png" style="position: relative; left: 15px; top: 8px;">
+      <span class="text">YouTube 工作室 </span>
+    </div>
+    <div class="button">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Youtube_Music_icon.svg/1024px-Youtube_Music_icon.svg.png"
+        style="position: relative; left: 15px; top: 8px;">
+      <span class="text">YouTube Music</span>
+    </div>
+    <div class="button">
+      <img src="./youtube-kids-child.png" style="position: relative; left: 15px; top: 8px;">
+      <span class="text">YouTube Kids</span>
+    </div>
+    <hr>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        settings
+      </span>
+      <span class="text">設定</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        flag
+      </span>
+      <span class="text">檢舉紀錄</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        help
+      </span>
+      <span class="text">說明</span>
+    </div>
+    <div class="button">
+      <span class="material-symbols-outlined">
+        feedback
+      </span>
+      <span class="text">提供意見</span>
+    </div>
+    <hr>
+    <div id="footer">
+      <span><a href="#">簡介</a></span>
+      <span><a href="#">媒體</a></span>
+      <span><a href="#">版權</a></span>
+      <span><a href="#">與我們聯絡</a></span>
+      <span><a href="#">創作者</a></span>
+      <span><a href="#">廣告</a></span>
+      <span><a href="#">開發人員</a></span><br>
+      <br>
+      <span><a href="#">條款</a></span>
+      <span><a href="#">隱私權</a></span>
+      <span><a href="#">政策與安全性</a></span>
+      <span><a href="#">YouTube 運作方式</a></span>
+      <span><a href="#">測試新功能</a></span>
+      <br>
+      <br>
+      <p>&copy; 2023 Google LLC</p>
+    </div>
+  </div>
+  <div id="content">
+    <div class="row">
+      <input type="button" value="全部" style="background-color: white;color: black;">
+      <input type="button" value="遊戲">
+      <input type="button" value="音樂">
+      <input type="button" value="動作冒險遊戲">
+      <input type="button" value="卡通">
+      <input type="button" value="直播中">
+      <input type="button" value="寵物">
+      <input type="button" value="最新上傳">
+      <input type="button" value="已觀看">
+      <input type="button" value="讓你耳目一新的影片">
+    </div>
+    <div id="container">
+      <div class="card">
+        <img
+          src="https://i.ytimg.com/vi/3-yMowkv1m4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAUL8jC_agUZ8RWdtLgDFGX0ytMIg"
+          class="img">
+        <div class="info">
+          <img src="https://yt3.ggpht.com/ytc/APkrFKa1boXfa25XW2HOPMw4uIclpZXRX-0RhujC_LrxyQ=s68-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>とんでもない理由で応援要請を受けるselly【ストグラ】</li>
+            <li>Selly Apex<br>觀看次數：4.8萬次 1 天前</li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="https://i.ytimg.com/vi/VmDy6ERsQY4/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCal98vq8dI8n27p3IusxonVciunQ"
+          class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/NNTqTn6wd5CWh4-ZgeNx9ai-Rv-S80FG3qfEp8fvONN3IeKjchXzt3H_6Bw8_YvrZiJSjCOC7w=s68-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>【全集馬拉松】櫻蘭高校男公關部｜Muse木棉花 動畫 線上看</li>
+            <li>
+              Muse木棉花-TW<br>
+              觀看次數：1.4萬次 12 天前</li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/F3ofAovTw20/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/dHOrOd1AIHn0xb6mJsy9VuDuQkqcYOFJtdgEyII1fuR-0UKMfJnMYHWuwuROYpuSZ2iqQJ2i_w=s400-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>[sub]🧳💎EP.2-2ㅣ준비한 체력이 소진되질 않아, 퀴즈가 끝나질 않습니다. | 🧳출장십오야2 x 세븐틴</li>
+            <li>
+              채널 십오야<br>
+              觀看次數：1096萬次 4 個月前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/ydeT75ooJpQ/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img src="https://yt3.ggpht.com/ytc/APkrFKZ64ZsNg2ASH8xSQbIKiolRAccvLF3yAAj6YQCkdQ=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>[𝑺𝑽𝑻 𝒑𝒍𝒂𝒚𝒍𝒊𝒔𝒕] 앙콜콘이 시급한 세븐틴 FOLLOW 콘서트 세트리스트 | ver. 콘서트홀(이어폰 착용 추천!) | 세븐틴 플레이리스트</li>
+            <li>
+              전원생활<br>
+              觀看次數：7.6萬次 1 個月前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/CHp0Kaidr14/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/XIrz2X4rxeRt59xggde9am7KqkZQ7e3TSaY3bZVWr6bWAVToAKNNH05ZAyovMCJySVxTjZHD=s68-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>[뮤뱅 원테이크 4K] 뉴진스(NewJeans) 'Attention' 4K Bonus Ver. @뮤직뱅크(Music Bank) 220805</li>
+            <li>
+              KBS Kpop<br>
+              觀看次數：2944萬次 1 年前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/aNLuO7FCsws/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/HEy9ec94OGFVI-vDxD3eagETV_PZDYNb3raozZKGokB3FTklMUfM6RCRSOnARNIK3E8Pd2vXfrU=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>[세븐틴] 세븐틴 막내는 형들이 12명! 디노의 막둥이 라이프 :)
+            </li>
+            <li>
+              THENARU<br>
+              觀看次數：187萬次 3 年前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/FaqLeulbQdE/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img src="https://yt3.ggpht.com/ytc/APkrFKa1boXfa25XW2HOPMw4uIclpZXRX-0RhujC_LrxyQ=s400-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>悪魔すぎるSelly＆Mondoの極悪作戦にドン引きしてしまうストグラ鯖民【ストグラ】
+            </li>
+            <li>
+              Selly Apex<br>
+              觀看次數：2萬次 21 小時前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/8rz8T5NO8iA/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/_jQ9hGHpXe09UyY8iAe5sbuEF9ESwGMos5bozhHCZKrFqN81QA_BCEX3jbdGg10XbZ9nZbT6=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>【ストグラ】成瀨力二VS貓咪芒果．粉紅警察大戰爭（剪輯）［nqrse/selly/ローレン/なつめ先生/Middleee］
+            </li>
+            <li>
+              えびび猫<br>
+              觀看次數：9921次 3 週前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div id="shorts">
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg" width="25px">
+          <span>Shorts</span>
+        </div>
+        <div class="long-card">
+          <img
+            src="https://i.ytimg.com/vi/04NMmfr5dvo/hq720.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLD6dGDggq8rHY9ff0hdVt_jewaYjg"
+            class="img-short">
+          <div class="info">
+            <ul>
+              <li>#ImSuperShy🫣with #SEVENTEEN #세븐틴 #HOSHI #WONWOO #NewJeans #뉴진스 #HYEIN #HAERIN #NewJeans_SuperShy
+              </li>
+              <li>
+                觀看次數：834萬次
+              </li>
+            </ul>
+            <img src="./點點.png" class="dot">
+          </div>
+        </div>
+        <div class="long-card">
+          <img
+            src="https://i.ytimg.com/vi/OvcEeg-vop8/hq720.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCFi6gupCsbzWUPqQzL5mGwKaH1kA"
+            class="img-short">
+          <div class="info">
+            <ul>
+              <li>
+                NewJeans You & me💚 #NewJeans #뉴진스 #NewJeans_NewJeans #NewJeans_GetUp #Time_to_NewJeans
+              </li>
+              <li>
+                觀看次數：562萬次
+              </li>
+            </ul>
+            <img src="./點點.png" class="dot">
+          </div>
+        </div>
+        <div class="long-card">
+          <img
+            src="https://i.ytimg.com/vi/Vs-shsVbEHU/hq720.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLDS5v6sBVlEelytcAGHNQm7LDTTpg"
+            class="img-short">
+          <div class="info">
+            <ul>
+              <li>
+                #Smokechallenge 🔥 #shorts
+              </li>
+              <li>
+                觀看次數：196萬次
+              </li>
+            </ul>
+            <img src="./點點.png" class="dot">
+          </div>
+        </div>
+        <div class="long-card">
+          <img
+            src="https://i.ytimg.com/vi/RKl2y2WKCSE/hq720.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLBiK6LL7REzxp1n9KZQIZaUSzNriw"
+            class="img-short">
+          <div class="info">
+            <ul>
+              <li>김채원 레전드 가사 실수 사건 ㅋㅋ
+              </li>
+              <li>
+                觀看次數：1245萬次
+              </li>
+            </ul>
+            <img src="./點點.png" class="dot">
+          </div>
+        </div>
+        <div class="long-card">
+          <img
+            src="https://i.ytimg.com/vi/CqxluYhV5Js/hq720.jpg?sqp=-oaymwEdCJUDENAFSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLC4cMScuDLmeW8f7a5zeLpCilPneg"
+            class="img-short">
+          <div class="info">
+            <ul>
+              <li>이게 나다
+              </li>
+              <li>
+                觀看次數：2748萬次
+              </li>
+            </ul>
+            <img src="./點點.png" class="dot">
+          </div>
+        </div>
+        <div class="long-card">
+          <img
+            src="https://i.ytimg.com/vi/e_lst8T9cNw/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLAtdSkrVFzIxeMikZb3ZJTwKl5Bhg"
+            class="img-short">
+          <div class="info">
+            <ul>
+              <li>
+                🤟🤟 손모양이 포인트 #RIIZE #라이즈 #RISEandREALIZE #이영지 ​⁠@youngji_2002 #GetAGuitar #RIIZE_GetAGuitar
+              </li>
+              <li>
+                觀看次數：125萬次
+              </li>
+            </ul>
+            <img src="./點點.png" class="dot">
+          </div>
+        </div>
+      </div>
+      <div id="line"></div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/8ca0xEJH9wY/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/RL_eRSTZjEdc3vAB78wiK6xihSd3wInZ4g1TA3JLzOvxRdJg_2IKqIw8y3CAd03qvgsBb-P5jQ=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>세븐틴(SEVENTEEN)의 킬링보이스를 라이브로! - 박수, 예쁘다, 울고 싶지 않아, A-TEEN, HOT, 아낀다, 어쩌나, Left & Right | 딩고뮤직</li>
+            <li>
+              딩고 뮤직 / dingo music<br>
+              觀看次數：4152萬次 1 年前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/HNKQE8Xmkkk/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/pbE0dAYCyzVKYG-d7ZQZu00yaiGiIXa506jyZWLQ_-Fr-37NHR2YP-4vEeBQlspoyxlpUgyOrWE=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>[SUB] 파이팅 그만해✋ [차린건 쥐뿔도 없지만] EP.17 #이영지 #세븐틴 #도겸 #조슈아 (ENG/JPN/SPA/IND)</li>
+            <li>
+              차린건 쥐뿔도 없지만<br>
+              觀看次數：1555萬次 5 個月前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/cUb0w-1JLdk/maxresdefault.jpg
+          " class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/_s3C7XpwVKVr_5gDrmYJh9AOkU3wFlY9FWyZBVGVP_v7B09P5O4bbEZaWGpiuyT78Dk-aElE=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>초밥 xxx접시 먹었습니다👊 리뷰 3천개?! 유명 회전초밥 먹방
+            </li>
+            <li>
+              tzuyang쯔양<br>
+              觀看次數：683萬次 1 年前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/2uJgZQ9hucc/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/zyXNGFCO4xxchNr8TJbk8UTSeBEinbfM3KHhhwxilB8I3O9oIOz2c9BtlGSQmMrMiSxe5pAe9Q=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>This Dog Probably Got Smacked by a Cat His Whole Life
+            </li>
+            <li>
+              밀키복이탄이MilkyBokiTan<br>
+              觀看次數：43萬次 1 個月前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/5ZYmuugIres/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/rauAHRPwCBGKmTBvZsAOOsZ-fS18yoX-Dio9uhz8LuHZ-BSXmz56ky0idPzCXDdEdA66-EiieJU=s88-c-k-c0x00ffffff-no-nd-rj"
+            class="icon">
+          <ul>
+            <li>[COVER] 밤비 - 누난 너무 예뻐 (Replay) (원곡 : SHINee (샤이니)) (Covered by Bamby)｜#플레이브 #PLAVE</li>
+            <li>
+              PLAVE 플레이브<br>
+              觀看次數：22萬次 3 個月前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/wIfbUBvXw3g/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/XIrz2X4rxeRt59xggde9am7KqkZQ7e3TSaY3bZVWr6bWAVToAKNNH05ZAyovMCJySVxTjZHD=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>[ENG/JP] 삼겹살에는 파채 대신 카&닝&채👪 feat.지글지글❤️‍🔥 달아오르는 우정 | 은채의 스타일기💫 특별판 | aespa | kaningchae</li>
+            <li>
+              KBS Kpop<br>
+              觀看次數：110萬次 7 天前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/I1NhmLvTFpI/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img src="https://yt3.ggpht.com/ytc/APkrFKYG5u7FzHf7JV9qVVyI4wbeoF0WDagytsR3nC5BMA=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>【バイトシナリオ】昼のみ291個 (理論値) on すじこ【サーモンランNW】
+            </li>
+            <li>
+              ねごねご<br>
+              觀看次數：2431次 5 天前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/Bzjj7DySNkk/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/MIPR-chE3Vl4vXw20tn_CVhbnhHt3ORu2uGiarDXgzhS7-PdIHqkth0lRQG-L-Ie3dXzowb4Og=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>[ASMR] Ceramic Rain in SPACE | 1hour typing sound | no mid-roll ads</li>
+            <li>
+              드보키 DBOKEY<br>
+              觀看次數：89萬次 1 年前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/v1h5nWEkaEM/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/B4eCWqBiJD9n02D4S3VTnX3FWrbJecoqQxVzPpA7VEjkScsK5XOHDSUqX_Si2qSUnmelyCKcmg=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>[겜Boi] 깜냥이와 함께! 놀러가요 캐럿의 숲 🏡
+            </li>
+            <li>
+              담<br>
+              觀看次數：5萬次 1 個月前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/vaQ8LVZoxfU/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/qVGEKobz9-uJM3VtfYj6yer9RTZ7H9OG1qbYT7dQEX3LXWDGUV_CPokIPVY3mPjjvXhVUoZWbQ=s400-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>otaku vlog：夏のおわりに、ゆるりとオタ活 🦕💿┊ダイソー新作購入品紹介,ガチャポン,アルバム開封,グッズ収納 etc. (ENG</li>
+            <li>
+              mugi no otakatsu<br>
+              觀看次數：1.5萬次 2 週前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/mMi6ARql3SI/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/_8pqw-QNqOs_PsVTn_A9qi4xfnorOa_Ang_pZ5Ak51MXvpEPnxCnw6Qq3pWC0IeubcmhB1fE1W8=s400-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>vlog | 毎日深夜２時に起床する引きこもりフリーランスの1日👩‍💻</li>
+            <li>
+              やまこ / yamako<br>
+              觀看次數：102萬次 2 個月前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.youtube.com/vi/u_Ry2KiKMXE/maxresdefault.jpg" class="img">
+        <div class="info">
+          <img
+            src="https://yt3.ggpht.com/tFOhG8lKCGfySFc6ILjUYiRDjSd-zRFtyp6v4541ol5qG3C23ZgtUtTetem_F5hMIlfIn7iigw=s88-c-k-c0x00ffffff-no-rj"
+            class="icon">
+          <ul>
+            <li>ぎゅっと。/ もさを。 Covered by Cpt / Chorus 天月
+            </li>
+            <li>
+              Cpt<br>
+              觀看次數：320萬次 1 年前
+            </li>
+          </ul>
+          <img src="./點點.png" class="dot">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
